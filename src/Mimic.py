@@ -1,4 +1,18 @@
 # Respond to Command, the command routines are async so we can use await, etc.
+
+# imports
+
+class Mimic:
+ 
+ def __init__(self):
+  domestate =	{
+    "isHome": True,
+    "isMoving": False,
+    "Shutter": "closed",
+    "Azimuth": 75,
+    "slop": 1.5,
+    "degreespersecond": 2.0
+  }
  
 async def GoHome():
   if (DomeState.isHome):
