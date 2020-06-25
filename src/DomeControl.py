@@ -6,7 +6,7 @@ class DomeControl:
   def __init__(self, domestate):
     # Initialize Dome Status
  
-  def go_home (wait):
+  def go_home ():
     self.goto_azimuth(domestate.Home_Position)
     
   def close_shutter (wait):
