@@ -1,6 +1,7 @@
 # Respond to Command, the command routines are async so we can use await, etc.
 
 # imports
+import DomeControl as dc
 
 class Mimic:
  
@@ -11,14 +12,15 @@ class Mimic:
     "Upper_Shutter": "closed",
     "Lower_Shutter": "closed",
     "Azimuth": 75,
+    "FastTracMode": False,
     "slop": 1.5,
     "degreespersecond": 2.0
   }
  
 async def GoHome():
-  if (DomeState.isHome):
+  if (domestate.isHome):
     return
-  await DomeState.Moving == False
+  await domestate.isMoving == False
   # Determine direction to move dome. (shortest distance to home)
   # Determine distance to be moved, calculate approximate time to move.
   # Command move GPIO pin on for calculated time. (minus one second)
@@ -26,33 +28,34 @@ async def GoHome():
   # When initial move is done, check position, move again if outside range.
  
 async def OpenShutter():
-  if (DomeState.ShutterOpen):
+  if (domestate.ShutterOpen):
     return
-  await DomeState.Moving == False  # probably bad code but this is the idea
-  if (!DomeState.isHome):
-    GoHome()
-  # Command the shutter to open. (set GPIO pin high)
-  # Wait prescribed time.
-  # (set GPIO pin low)
-  # Set DomeState.ShutterOpen to True, ShutterClosed to false.
+  await domestate.isMoving == False  # probably bad code but this is the idea
+  if (!domestate.isHome):
+    dc.go_home()
+  dc.open_shutter(waittime)
+  # Set domestate.Upper_Shutter to "open".
+  # Set domestate.Lower_Shutter to "open".
    
 async def CloseShutter():
-  if (DomeState.ShutterClosed):
+  if (domestate.Upper_shutter == "closed" && domestate.Lower_Shutter == "closed"):
       return
-  await DomeState.Moving == False  # probably bad code but this is the idea
-  if (!DomeState.isHome):
-    GoHome()
-  # Similar to OpenShutter above.
+  await domestate.isMoving == False  # probably bad code but this is the idea
+  if (!domestate.isHome):
+    dc.go_home()
+  dc.close_shutter(waittime)
+  # Set domestate.Upper_Shutter to "closed".
+  # Set domestate.Lower_Shutter to "closed".
  
 async def ToFastTrackMode():
-  await DomeState.Moving == False  # probably bad code but this is the idea
-  DomeState.FastTrackMode = True
+  await domestate.isMoving == False  # probably bad code but this is the idea
+  domestate.FastTrackMode = True
  
 async def SetAzimuth(az):
-  await DomeState.Moving == False  # probably bad code but this is the idea
-  lower = DomeState.Azimuth - DomeState.slop
-  upper = DomeState.Azimuth + DomeState.slop
-  if (lower <= DomeState.Azimuth <= upper):
+  await domestate.isMoving == False  # probably bad code but this is the idea
+  lower = domestate.Azimuth - domedtate.slop
+  upper = domestate.Azimuth + domestate.slop
+  if (lower <= domestate.Azimuth <= upper):
     return
   # We will need to be careful with the above near zero azimuth.
   # Now calculate the difference between "az", the commanded azimuth
@@ -66,7 +69,7 @@ def command_to_function(arg):
   # if we see a G followed by three numbers, ie. G123 it means move dome to azimuth "123"
   p = re.compile('G\d{3}'))
   if (p.match(arg)):
-    SetAzimuth(arg[1:3])
+    dc.goto_azimuth(arg[1:3])
     return
  
   pseudocase = {
