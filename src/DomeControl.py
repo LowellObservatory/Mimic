@@ -7,7 +7,11 @@ class DomeControl:
     # Initialize Dome Status
  
   def go_home (wait):
+    self.goto_azimuth(domestate.Home_Position)
+    
   def close_shutter (wait):
+    ctl.upper_shutter_close(domestate, wait)
+    ctl.lower_shutter_close (domestate, wait)
  
   def open_shutter (domestate, wait):
     ctl.upper_shutter_open(domestate, wait)
