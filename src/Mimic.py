@@ -8,7 +8,8 @@ class Mimic:
   domestate =	{
     "isHome": True,
     "isMoving": False,
-    "Shutter": "closed",
+    "Upper_Shutter": "closed",
+    "Lower_Shutter": "closed",
     "Azimuth": 75,
     "slop": 1.5,
     "degreespersecond": 2.0
