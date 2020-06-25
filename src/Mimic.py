@@ -12,6 +12,7 @@ class Mimic:
     "Upper_Shutter": "closed",
     "Lower_Shutter": "closed",
     "Azimuth": 75,
+    "HomePosition": 75,
     "FastTracMode": False,
     "slop": 1.5,
     "degreespersecond": 2.0
@@ -21,11 +22,7 @@ async def GoHome():
   if (domestate.isHome):
     return
   await domestate.isMoving == False
-  # Determine direction to move dome. (shortest distance to home)
-  # Determine distance to be moved, calculate approximate time to move.
-  # Command move GPIO pin on for calculated time. (minus one second)
-  # Monitor movement by reading position from UART. (bar code reader)
-  # When initial move is done, check position, move again if outside range.
+  dc.go_home()
  
 async def OpenShutter():
   if (domestate.ShutterOpen):
@@ -34,8 +31,6 @@ async def OpenShutter():
   if (!domestate.isHome):
     dc.go_home()
   dc.open_shutter(waittime)
-  # Set domestate.Upper_Shutter to "open".
-  # Set domestate.Lower_Shutter to "open".
    
 async def CloseShutter():
   if (domestate.Upper_shutter == "closed" && domestate.Lower_Shutter == "closed"):
@@ -44,8 +39,6 @@ async def CloseShutter():
   if (!domestate.isHome):
     dc.go_home()
   dc.close_shutter(waittime)
-  # Set domestate.Upper_Shutter to "closed".
-  # Set domestate.Lower_Shutter to "closed".
  
 async def ToFastTrackMode():
   await domestate.isMoving == False  # probably bad code but this is the idea
@@ -57,6 +50,7 @@ async def SetAzimuth(az):
   upper = domestate.Azimuth + domestate.slop
   if (lower <= domestate.Azimuth <= upper):
     return
+  dc.goto_azimuth()
   # We will need to be careful with the above near zero azimuth.
   # Now calculate the difference between "az", the commanded azimuth
   #   and DomeState.Azimuth.  Calculate a direction and time based on this difference.
