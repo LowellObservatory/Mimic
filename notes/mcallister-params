@@ -1,6 +1,10 @@
 
 C---     McAllister Parameters
 
+this is a data file from the MOVE program for the McAllister telescope
+some of this data is applicable to the Dyer telescope and dome
+provided by Larry Wasserman
+
 
 C---     Dome radius in feet
          DOMRAD=103./12.
