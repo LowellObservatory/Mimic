@@ -1,0 +1,40 @@
+
+C---     McAllister Parameters
+
+
+C---     Dome radius in feet
+         DOMRAD=103./12.
+C---     Full slit width is 40", Delta is half that in feet
+         DELTA=40./(12.*2.)
+C---     Telscope is 16" diameter, Raius is half, converted to feet
+         TELRAD=16./(12.*2.)
+C---     GAM, the back opening distance in deg is 20"--> 11.1 deg (past the zenith)    
+         GAM=11.1
+C---     The next four parameters are used to compute the azimuth
+C---     of the telescope and are
+C---       1) RHO - The distance between the intersection of the DEC and 
+C---          polar axes and the intersection of the DEC and optical axes 
+C---          as a fraction of the the dome radius. 
+C---       2) ETA - The distance that the intersection of the DEC and 
+C---          polar axes is above the geometric center of the dome as 
+C---          a fraction of the radius (positive up)
+C---       3) XC - The distance that the intersection of the DEC and
+C---          polar axes is E/W  of the geometric center of the dome as
+C---          a fraction of the dome radius (positive west)
+C---       4) YC - The distance that the intersection of the DEC and
+C---          polar axes is N/S  of the geometric center of the dome as
+C---          a fraction of the dome radius (positive south)
+C---       5) EASTTEL is .TRUE. if the telescope is on the east side of
+C---          the polar axis and .FALSE. if it is on the west.  This
+C---          parameter is irrelevant if RHO=0
+C---     RHO is 17.5". Convert to feet and scale to dome
+         RHO=17.5/(12.*DOMRAD)
+C---     ETA is -1". Convert to feet and scale to dome
+         ETA=-1./(12.*DOMRAD)
+C---     XC is zero and YC is 5" north. Convert to feet and scale to dome
+         XC=0.
+         YC=-5./(12.*DOMRAD)
+C---     McAllister can be flipped, but for the time being we're not.
+         EASTTEL=.TRUE.
+
+
