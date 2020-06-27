@@ -6,7 +6,7 @@ dome coasts about 1.5 to 2 degrees after motor turned off
 the dome parks at 45 degrees, this may be offset from the barcode reader by 100 degrees
   we'll have to test this
   
-Dome motion ramp up time so small as to be negligible
+dome motion ramp up time so small as to be negligible
 
 opening the shutter
   85 seconds for upper shutter, 45 seconds for lower shutter
