@@ -1,5 +1,5 @@
-dome rotates 360 degrees in 110 seconds
-dome coasts about 1.5 to 2 degrees after motor turned off
+$dome rotates 360 degrees in 110 seconds
+$dome coasts about 1.5 to 2 degrees after motor turned off
   this means the move time is one second less than calculated
 the dome parks at 45 degrees, this may be offset from the barcode reader by 100 degrees
   we'll have to test this
