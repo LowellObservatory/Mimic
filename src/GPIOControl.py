@@ -10,41 +10,41 @@ class GPIOControl:
     GPIO.output (chan_list, GPIO.HIGH)
     self.domestate = domestate
  
-  def upper_shutter_open (wait)
-    GPIO.output ([26, 23, 24], (GPIO_HIGH, GPIO_LOW, GPIO_HIGH)
+  def upper_shutter_open (wait):
+    GPIO.output ([26, 23, 24], (GPIO_HIGH, GPIO_LOW, GPIO_HIGH))
     time.sleep(wait)
-    GPIO.output ([26, 23, 24], (GPIO_HIGH, GPIO_HIGH, GPIO_HIGH)
+    GPIO.output ([26, 23, 24], (GPIO_HIGH, GPIO_HIGH, GPIO_HIGH))
     self.domestate.Upper_Shutter = "open"
  
   def upper_shutter_close (wait):
-    GPIO.output ([26, 23, 24], (GPIO_LOW, GPIO_HIGH, GPIO_LOW)
+    GPIO.output ([26, 23, 24], (GPIO_LOW, GPIO_HIGH, GPIO_LOW))
     time.sleep(wait)
-    GPIO.output ([26, 23, 24], (GPIO_HIGH, GPIO_HIGH, GPIO_HIGH)
+    GPIO.output ([26, 23, 24], (GPIO_HIGH, GPIO_HIGH, GPIO_HIGH))
     self.domestate.Upper_Shutter = "closed"
                  
   def lower_shutter_open (wait):
-    GPIO.output ([6, 25, 16], (GPIO_HIGH, GPIO_LOW, GPIO_HIGH)
+    GPIO.output ([6, 25, 16], (GPIO_HIGH, GPIO_LOW, GPIO_HIGH))
     time.sleep(wait)
-    GPIO.output ([6, 25, 16], (GPIO_HIGH, GPIO_HIGH, GPIO_HIGH)
+    GPIO.output ([6, 25, 16], (GPIO_HIGH, GPIO_HIGH, GPIO_HIGH))
     self.domestate.Lower_Shutter = "open"
                  
   def lower_shutter_close (wait):
-    GPIO.output ([6, 25, 16], (GPIO_LOW, GPIO_HIGH, GPIO_LOW)
+    GPIO.output ([6, 25, 16], (GPIO_LOW, GPIO_HIGH, GPIO_LOW))
     time.sleep(wait)
-    GPIO.output ([6, 25, 16], (GPIO_HIGH, GPIO_HIGH, GPIO_HIGH)
+    GPIO.output ([6, 25, 16], (GPIO_HIGH, GPIO_HIGH, GPIO_HIGH))
     self.domestate.Lower_Shutter = "closed"
                  
   def rotate_left (wait):
     self.domestate.isMoving = "True"
-    GPIO.output ([27, 5, 17], (GPIO_HIGH, GPIO_LOW, GPIO_HIGH)
+    GPIO.output ([27, 5, 17], (GPIO_HIGH, GPIO_LOW, GPIO_HIGH))
     time.sleep(wait)
-    GPIO.output ([27, 5, 17], (GPIO_HIGH, GPIO_HIGH, GPIO_HIGH)
+    GPIO.output ([27, 5, 17], (GPIO_HIGH, GPIO_HIGH, GPIO_HIGH))
     self.domestate.isMoving = "False"
                  
   def rotate_right (wait):
     self.domestate.isMoving = "True"
-    GPIO.output ([27, 5, 17], (GPIO_LOW, GPIO_HIGH, GPIO_LOW)
+    GPIO.output ([27, 5, 17], (GPIO_LOW, GPIO_HIGH, GPIO_LOW))
     time.sleep(wait)
-    GPIO.output ([27, 5, 17], (GPIO_HIGH, GPIO_HIGH, GPIO_HIGH)
+    GPIO.output ([27, 5, 17], (GPIO_HIGH, GPIO_HIGH, GPIO_HIGH))
     self.domestate.isMoving = "False"
  
