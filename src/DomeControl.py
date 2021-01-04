@@ -59,8 +59,21 @@ class DomeControl:
 #      return
 
     # Go, ADAZ will update automatically as the dome turns.
-    if (right):
-      await self.gpioctl.rotate_right_az(azimuth, info)
+    if (az_to_go == 1):
+      print("nudging one degree")
+      if (right):
+        await self.gpioctl.rotate_right(0.25)
+      else:
+        await self.gpioctl.rotate_left(0.25)
+    elif (az_to_go == 2):
+      print("nudging two degrees")
+      if (right):
+        await self.gpioctl.rotate_right(0.5)
+      else:
+        await self.gpioctl.rotate_left(0.5)
     else:
-      await self.gpioctl.rotate_left_az(azimuth, info)
-    return
+      if (right):
+        await self.gpioctl.rotate_right_az(azimuth, info)
+      else:
+        await self.gpioctl.rotate_left_az(azimuth, info)
+      return
