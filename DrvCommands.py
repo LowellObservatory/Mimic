@@ -21,6 +21,7 @@ class DrvCommands:
     curr_az = info.getInf("ADAZ")
     if (curr_az < 60 or curr_az > 68):
       await self.dmctl.go_home(info)
+      time.sleep(5)
     self.dmctl.open_shutter(info)
    
   async def close_shutter(self, info):
@@ -28,6 +29,7 @@ class DrvCommands:
     curr_az = info.getInf("ADAZ")
     if (curr_az < 60 or curr_az > 68):
       await self.dmctl.go_home(info)
+      time.sleep(5)
     self.dmctl.close_shutter(info)
  
   async def set_azimuth(self, az, info):
