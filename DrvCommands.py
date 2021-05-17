@@ -19,7 +19,7 @@ class DrvCommands:
   async def open_shutter(self, info):
     print("DrvCommands: open_shutter")
     curr_az = info.getInf("ADAZ")
-    if (curr_az < 60 or curr_az > 68):
+    if (curr_az < 63 or curr_az > 68):
       await self.dmctl.go_home(info)
       time.sleep(5)
     self.dmctl.open_shutter(info)
@@ -27,7 +27,7 @@ class DrvCommands:
   async def close_shutter(self, info):
     print("DrvCommands: close_shutter")
     curr_az = info.getInf("ADAZ")
-    if (curr_az < 60 or curr_az > 68):
+    if (curr_az < 63 or curr_az > 68):
       await self.dmctl.go_home(info)
       time.sleep(5)
     self.dmctl.close_shutter(info)

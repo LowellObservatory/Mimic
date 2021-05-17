@@ -14,13 +14,13 @@ class InfPacket:
     self.domeinf["Dticks"] =  360
     
     # Azimuth location of Home position in ticks.
-    self.domeinf["Home1"] =  64
+    self.domeinf["Home1"] =  65
     
     # Coast value in ticks.
     self.domeinf["Coast"] =  2
     
     # Current Dome azimuth in ticks.
-    self.domeinf["ADAZ"] =  64
+    self.domeinf["ADAZ"] =  65
     
     # Slave status, 0=off, 1=on.
     self.domeinf["Slave"] =  0
@@ -35,7 +35,7 @@ class InfPacket:
     self.domeinf["Home"] =  0
     
     # Azimuth ticks of CCW edge of Home position.
-    self.domeinf["HTICK_CCLK"] =  61
+    self.domeinf["HTICK_CCLK"] =  63
     
     # Azimuth ticks of CW edge of Home position.
     self.domeinf["HTICK_CLK"] =  67

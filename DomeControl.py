@@ -15,7 +15,7 @@ class DomeControl:
 
   async def go_home (self, info):
     print("DomeControl: go_home")
-    await self.goto_azimuth(56, info)
+    await self.goto_azimuth(58, info)
     
   def close_shutter (self, info):
     print("DomeControl: close_shutter")
