@@ -1,11 +1,9 @@
 import asyncio
 import serial_asyncio
-import re
-import time
-from InfPacket import InfPacket
-from DrvCommands import DrvCommands
-import DomeControl
-from setup_logger import logger
+
+from mimic.setup_logger import logger
+from mimic.InfPacket import InfPacket
+from mimic.DrvCommands import DrvCommands
 
 
 async def main(loop):

@@ -1,8 +1,5 @@
 import asyncio
 
-from .InfPacket import InfPacket
-from .DrvCommands import DrvCommands
-from .DomeControl import DomeControl
 from .GPIOControl import GPIOControl
 
 
