@@ -1,8 +1,8 @@
-import DomeControl
-import DrvCommands
-import GPIOControl
-import InfPacket
+from . import DomeControl
+from . import DrvCommands
+from . import GPIOControl
+from . import InfPacket
 
-import reset
-import rotate
-import setup_logger
+from . import reset
+from . import rotate
+from . import setup_logger
