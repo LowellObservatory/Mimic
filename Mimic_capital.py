@@ -64,6 +64,12 @@ async def recvComm(r, w, info, drvc):
         await drvc.command_to_function(msgascii, w, info)
 
 
-loop = asyncio.get_event_loop()
-loop.run_until_complete(main(loop))
-loop.close()
+if __name__ == "__main__":
+    # TODO :
+    #   - Split common config parameters out to a conf file (home, timing, etc)
+    #   - Stub in LED stuff
+    #   - Add in broker advertising and formatting
+    #   - Set up logger(s) uniformly and pass them around
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(main(loop))
+    loop.close()
